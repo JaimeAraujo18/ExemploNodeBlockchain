@@ -25,7 +25,6 @@ class Block {
 	}
 
 	static mineBlock(lastBlock, data) {
-
 		let hash;
 		let timestamp = Date.now();
 		const lastHash = lastBlock.hash;
@@ -34,9 +33,10 @@ class Block {
 	}
 
 	static blockHash(block) {
-		//destructuring
+		// destructuring
 		const { timestamp, lastHash, data } = block;
 		return Block.hash(timestamp, lastHash, data);
 	}
 }
+
 module.exports = Block;
