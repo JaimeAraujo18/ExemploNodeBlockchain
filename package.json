@@ -5,7 +5,11 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "jest --watchAll",
-		"dev": "nodemon ./app"
+		"dev": "nodemon ./app",
+		"peer1": "npm run dev",
+		"peer2": "cross-env HTTP_PORT=\"3002\" P2P_PORT=\"5002\" PEERS=\"ws://localhost:5001\" npm run dev",
+		"peer3": "cross-env HTTP_PORT=\"3003\" P2P_PORT=\"5003\" PEERS=\"ws://localhost:5001,ws://localhost:5002\" npm run dev",
+		"peer4": "cross-env HTTP_PORT=\"3004\" P2P_PORT=\"5004\" PEERS=\"ws://localhost:5001,ws://localhost:5002,ws://localhost:5003\" npm run dev"
 	},
 	"keywords": [],
 	"author": "",
@@ -15,6 +19,7 @@
 	},
 	"dependencies": {
 		"body-parser": "^1.20.2",
+		"cross-env": "^7.0.3",
 		"crypto-js": "^4.1.1",
 		"elliptic": "^6.5.4",
 		"express": "^4.18.2",
